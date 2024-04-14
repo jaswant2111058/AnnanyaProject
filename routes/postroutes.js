@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const Post = require("../../models/postmodal"); // Corrected import name
+const Post = require("../models/postmodal"); // Corrected import name
 
 // Add Post
 router.post("/createpost", async (req, res) => {

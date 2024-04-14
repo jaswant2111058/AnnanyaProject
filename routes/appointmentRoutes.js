@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const Appoint = require("../../models/appointmentModal");
+const Appoint = require("../models/appointmentModal");
 
 // Add Appointment
 router.post("/addAppointment", async (req, res) => {

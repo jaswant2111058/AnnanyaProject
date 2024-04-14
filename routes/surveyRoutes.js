@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const Survey = require("../../models/surveyModal");
-const SurveyReport = require("../../models/surveyReport");
+const Survey = require("../models/surveyModal");
+const SurveyReport = require("../models/surveyReport");
 //add survey
 
 router.post("/addsurvey", async (req, res) => {
