@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const User = require("../models/userModal");
+const User = require("../../models/userModal");
 const jwt = require("jsonwebtoken");
-const Doctor = require("../models/doctorModal");
+const Doctor = require("../../models/doctorModal");
 
 //user registration
 
