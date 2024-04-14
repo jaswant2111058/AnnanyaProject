@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(userRoutes);
 app.use(surveyRoutes);
 app.use(postroutes);
-// app.use(AppointmentRoutes);
+app.use(AppointmentRoutes);
 const startServer = async () => {
   mongoose.connect(
     "mongodb+srv://anniagg2003:annanay@cluster0.81ccs6o.mongodb.net/",
