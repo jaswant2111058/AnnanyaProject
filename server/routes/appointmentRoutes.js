@@ -3,10 +3,10 @@ const router = express.Router();
 
 const Appoint = require("../models/appointmentModal");
 
-//Add Appointment
+// Add Appointment
 router.post("/addAppointment", async (req, res) => {
   try {
-    if (!req.body.recipient_email || !req.body.doctor || !req.body.approved)
+    if (!req.body.recipient_email || !req.body.doctor || req.body.approved === undefined)
       return res.status(400).send({
         status: false,
         message: "Invalid Parameters",
@@ -18,7 +18,7 @@ router.post("/addAppointment", async (req, res) => {
 
     res.send({
       status: true,
-      message: "Appointment add successfully",
+      message: "Appointment added successfully",
     });
   } catch (error) {
     res.status(400).send({
@@ -28,15 +28,15 @@ router.post("/addAppointment", async (req, res) => {
   }
 });
 
-//get Appointment By User Email
-router.post("./getAppByemail", async (req, res) => {
+// Get Appointments By User Email
+router.post("/getAppByemail", async (req, res) => {
   try {
     if (!req.body.email)
       return res.status(400).send({
         status: false,
         message: "Invalid Parameters",
       });
-    const data = await Appoint.find({ email: req.body.email, approved: true });
+    const data = await Appoint.find({ recipient_email: req.body.email, approved: true });
 
     return res.status(200).send({
       success: true,
@@ -50,17 +50,17 @@ router.post("./getAppByemail", async (req, res) => {
   }
 });
 
-//Approve Appointment and Add time
+// Approve Appointment and Add Time
 router.post("/approveAppointments", async (req, res) => {
   try {
-    if (!req.body.Appid)
+    if (!req.body.Appid || !req.body.date)
       return res.status(400).send({
         status: false,
         message: "Invalid Parameters",
       });
 
     const data = await Appoint.findOneAndUpdate(
-      { id: req.body.Appid },
+      { _id: req.body.Appid },
       { approved: true, time: req.body.date }
     );
     res.send({
@@ -75,4 +75,4 @@ router.post("/approveAppointments", async (req, res) => {
   }
 });
 
-module.exports = Appoint;
+module.exports = router;
