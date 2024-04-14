@@ -8,6 +8,7 @@ const port = process.env.port || 3000;
 const userRoutes = require("./routes/userRoutes");
 const surveyRoutes = require("./routes/surveyRoutes");
 const AppointmentRoutes = require("./routes/appointmentRoutes");
+const postroutes = require("./routes/postroutes")
 const app = express();
 const db = require("mongoose");
 const cors = require("cors");
@@ -18,10 +19,11 @@ app.use(
 app.use(express.json());
 app.use(userRoutes);
 app.use(surveyRoutes);
+app.use(postroutes);
 // app.use(AppointmentRoutes);
 const startServer = async () => {
   mongoose.connect(
-    "mongodb+srv://nasa-api:6ybvrxwT4vmnuCkV@cluster0.pdd585k.mongodb.net/happy2help2",
+    "mongodb+srv://anniagg2003:annanay@cluster0.81ccs6o.mongodb.net/",
     {}
   );
 
