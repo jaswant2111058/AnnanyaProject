@@ -1,0 +1,14 @@
+{
+  "name": "acehack24",
+  "version": "1.0.0",
+  "description": "for Acehack Hackathon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"cd server && npm run start",
+    "install-assets":"npm install && cd server && npm install"
+    
+  },
+  "author": "",
+  "license": "ISC"
+}

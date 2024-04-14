@@ -1,0 +1,14 @@
+const db = require("mongoose");
+db.connect(
+  //   "mongodb+srv://nasa-api:6ybvrxwT4vmnuCkV@cluster0.pdd585k.mongodb.net/happy2help"
+  "mongodb+srv://nasa-api:6ybvrxwT4vmnuCkV@cluster0.pdd585k.mongodb.net/happy2help"
+);
+
+db.connection.on("connected", () => {
+  console.log("Mongo DB Connected");
+});
+
+db.connection.on("error", (err) => {
+  console.log("Mongo DB connection failed with error", err);
+});
+module.exports = db;
